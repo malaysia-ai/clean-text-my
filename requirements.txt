@@ -1,0 +1,4 @@
+datasets>=1.13.3
+requests
+rich
+scipy
