@@ -9,7 +9,7 @@ with open("requirements.txt") as fopen:
 
 def readme():
     # TODO https://github.com/huseinzol05/malaya/blob/master/README-pypi.rst
-    with open("README-pypi.rst") as f:
+    with open("README.md") as f:
         return f.read()
 
 
@@ -18,6 +18,7 @@ setup(
     description="",
     version="0.0.1",
     long_description=readme(),
+    long_description_content_type="text/markdown",
     packages=find_packages(),
     python_requires=">=3.7",
     install_requires=req,
