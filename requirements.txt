@@ -1,4 +1,5 @@
 datasets>=1.13.3
+numpy>=1.17
 requests
 rich
 scipy
