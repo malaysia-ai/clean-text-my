@@ -1,4 +1,3 @@
-import setuptools
 from setuptools import setup, find_packages
 
 __packagename__ = "clean_text_my"
@@ -20,7 +19,7 @@ setup(
     long_description=readme(),
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    python_requires=">=3.7",
+    python_requires=">=3.6",
     install_requires=req,
     author="Malaysia AI",
     author_email="malaysia.ai2020@gmail.com",
