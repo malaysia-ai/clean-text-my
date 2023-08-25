@@ -15,7 +15,7 @@ def readme():
 setup(
     name=__packagename__,
     description="",
-    version="0.1.0",
+    version="0.1.1",
     long_description=readme(),
     long_description_content_type="text/markdown",
     packages=find_packages(),
