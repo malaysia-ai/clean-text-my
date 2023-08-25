@@ -2,6 +2,7 @@ import os
 import re
 import json
 import subprocess
+from tqdm import tqdm
 from pathlib import Path
 from sys import platform
 
@@ -29,6 +30,13 @@ def slash() -> str:
         return "\\"
     elif platform_name() == "linux":
         return "/"
+
+
+def is_additional_slash(path) -> str:
+    if not is_endwith_slash(path):
+        path = f"{path}{slash()}"
+
+    return path
 
 
 def create_dir(path: str) -> None:
