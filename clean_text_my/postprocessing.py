@@ -3,6 +3,7 @@ import re
 import json
 import logging
 from glob import glob
+from tqdm import tqdm
 from clean_text_my.logging import logger
 from clean_text_my.utils import create_dir, slash, is_endwith_slash, platform_name
 
@@ -60,6 +61,8 @@ rejected = [
     "site or edit the error_page",
 ]
 
+rejected.extend(http_errors)
+
 
 def replace(input_string: str) -> str:
     input_string = replace_multiple(input_string.replace("…", "."))
@@ -72,7 +75,6 @@ def replace_multiple(input_string: str, pattern=r"\s{6,}", replace="   ") -> str
 
 
 def reject(input_string: str) -> bool:
-    rejected.extend(http_errors)
     if any([r in input_string for r in rejected]):
         return True
     return False
@@ -109,7 +111,7 @@ def process(input_folder: str):
 
         with open(new_f, "w") as fopen_l:
             with open(f) as fopen:
-                for l in fopen:
+                for l in tqdm(fopen):
                     data = json.loads(l)
 
                     if "text" not in data:
